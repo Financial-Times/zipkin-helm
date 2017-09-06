@@ -75,5 +75,5 @@ spec:
                   name: zipkin
                   key: cassandra.password
             - name: CASSANDRA_ENSURE_SCHEMA
-              value: "{{ .Values.cassandra.ensureSchema }}"
+              value: "true"
 {{ end }}

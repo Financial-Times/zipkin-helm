@@ -1,33 +1,33 @@
 # Default values for zipkin.
 collector:
-  replicaCount: 4
-  maxReplicaCount: 4
+  replicaCount: 2
+  maxReplicaCount: 2
   targetCPUUtilizationPercentage: 80
-  imageVersion: 1.28.1
-  sampleRate: 0.0000001
-  probeStartupDelay: 150
+  imageVersion: 1.31.1
+  sampleRate: 0.00001
+  probeStartupDelay: 100
   queryPort: 9411
   resources:
     ramMb: 900
     javaOptsHeap: 700
-    cpuRequest: 150m
-    cpuLimit: 200m
+    cpuRequest: 80m
+    cpuLimit: 300m
 
 ui:
   replicaCount: 1
-  imageVersion: 1.28.1
-  probeStartupDelay: 150
+  imageVersion: 1.31.1
+  probeStartupDelay: 100
   queryPort: 9411
   resources:
     ramMb: 900
     javaOptsHeap: 700
     cpuRequest: 150m
-    cpuLimit: 200m
+    cpuLimit: 300m
 
 dependencies:
   enabled: true
   cron: "0 22 * * *"
-  imageVersion: 1.6.1
+  imageVersion: 1.9.0
   resources:
     ramMb: 900
     javaOptsHeap: 700
@@ -35,15 +35,15 @@ dependencies:
     cpuLimit: 200m
 
 configmap:
-  name: zipkin
+  name: zipkin-storage
   contactPoints:
-    name: zipkin
+    name: zipkin-storage
     key: cassandra.contactpoints
   username:
-    name: zipkin
+    name: zipkin-storage
     key: cassandra.username
   localdc:
-    name: zipkin
+    name: zipkin-storage
     key: cassandra.localdc
 
 ingress:
@@ -56,11 +56,20 @@ ingress:
 storageMethod: cassandra
 
 cassandra:
-  username: placeholder
-  password: placeholder
-  contactPoints: placeholder
-  localdc: placeholder
+  username: zipkin
+  password: zipkin
+  contactPoints: zipkin-cassandra:9042
+  localdc: datacenter1
   ensureSchema: false
+  image: openzipkin/zipkin-cassandra
+  probeStartupDelay: 180
+  tag: 1
+  replicas: 1
+  pvSize: 20Gi
+  resources:
+    ramMb: 2500
+    cpuRequest: 150m
+    cpuLimit: 200m
 
 node:
   cpus: 2

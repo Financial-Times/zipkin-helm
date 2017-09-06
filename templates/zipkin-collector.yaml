@@ -11,7 +11,8 @@ spec:
   replicas: {{ .Values.collector.replicaCount }}
   strategy:
     rollingUpdate:
-      maxUnavailable: 2
+      maxUnavailable: 0
+      maxSurge: {{ .Values.collector.replicaCount }}
   template:
     metadata:
       labels:
