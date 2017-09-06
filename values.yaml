@@ -4,7 +4,7 @@ collector:
   maxReplicaCount: 2
   targetCPUUtilizationPercentage: 80
   imageVersion: 1.31.1
-  sampleRate: 0.00001
+  sampleRate: 0.1
   probeStartupDelay: 100
   queryPort: 9411
   resources:
@@ -62,14 +62,14 @@ cassandra:
   localdc: datacenter1
   ensureSchema: false
   image: openzipkin/zipkin-cassandra
-  probeStartupDelay: 180
+  probeStartupDelay: 120
   tag: 1
   replicas: 1
   pvSize: 20Gi
   resources:
-    ramMb: 2500
-    cpuRequest: 150m
-    cpuLimit: 200m
+    ramMb: 3000
+    cpuRequest: 200m
+    cpuLimit: 500m
 
 node:
   cpus: 2
