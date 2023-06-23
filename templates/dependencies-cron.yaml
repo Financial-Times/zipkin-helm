@@ -24,7 +24,7 @@ spec:
           restartPolicy: Never
           containers:
           - name: zipkin-dependencies-gen
-            image: "openzipkin/zipkin-dependencies:{{ .Values.dependencies.imageVersion }}"
+            image: "nexus.in.ft.com:5000/membership/zipkin-dependencies:{{ .Values.dependencies.imageVersion }}"
             env:
             - name: STORAGE_TYPE
               value: "{{ .Values.storageMethod }}"

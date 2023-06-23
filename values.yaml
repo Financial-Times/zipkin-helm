@@ -27,7 +27,7 @@ ui:
 dependencies:
   enabled: true
   cron: "0 22 * * *"
-  imageVersion: 1.11.0
+  imageVersion: 3
   resources:
     ramMbLimits: 4000
     ramMbRequests: 4000
