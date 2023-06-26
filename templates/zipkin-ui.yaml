@@ -56,27 +56,3 @@ spec:
               value: "true"
             - name: STORAGE_TYPE
               value: "{{ .Values.storageMethod }}"
-{{if eq .Values.storageMethod "cassandra3"}}
-            - name: CASSANDRA_USERNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Values.configmap.username.name }}
-                  key: {{ .Values.configmap.username.key }}
-            - name: CASSANDRA_CONTACT_POINTS
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Values.configmap.contactPoints.name }}
-                  key: {{ .Values.configmap.contactPoints.key }}
-            - name: CASSANDRA_LOCAL_DC
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ .Values.configmap.localdc.name }}
-                  key: {{ .Values.configmap.localdc.key }}
-            - name: CASSANDRA_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: zipkin
-                  key: cassandra.password
-            - name: CASSANDRA_ENSURE_SCHEMA
-              value: "false"
-{{ end }}
