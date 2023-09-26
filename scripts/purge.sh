@@ -7,7 +7,7 @@ kubectl delete statefulsets/zipkin-cassandra
 
 kubectl delete hpa/zipkin-collector
 
-kubectl delete cronjobs/foiled-walrus-zipkin-dependencies-gen
+kubectl delete cronjobs/zipkin-helm-zipkin-dependencies-gen
 
 kubectl delete svc/zipkin
 kubectl delete svc/zipkin-cassandra
