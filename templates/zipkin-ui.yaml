@@ -56,3 +56,5 @@ spec:
               value: "true"
             - name: STORAGE_TYPE
               value: "{{ .Values.storageMethod }}"
+            - name: MEM_MAX_SPANS # Oldest traces (and their spans) will be purged first when this limit is exceeded. Default 500000
+              value: "{{ .Values.ui.resources.spanLimit}}"

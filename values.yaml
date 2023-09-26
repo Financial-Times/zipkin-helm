@@ -10,6 +10,7 @@ ui:
     javaOptsHeap: 1000
     cpuRequest: 80m
     cpuLimit: 300m
+    spanLimit: 50000
 
 configmap:
   name: zipkin-storage
