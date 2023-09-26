@@ -4,6 +4,7 @@ ui:
   maxReplicaCount: 5
   imageVersion: latest
   probeStartupDelay: 200
+  targetCPUUtilizationPercentage: 80
   queryPort: 9411
   resources:
     ramMb: 2100
