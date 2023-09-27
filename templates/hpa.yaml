@@ -12,6 +12,6 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: zipkin-collector
-  minReplicas: {{ .Values.collector.replicaCount }}
-  maxReplicas: {{ .Values.collector.maxReplicaCount }}
-  targetCPUUtilizationPercentage: {{ .Values.collector.targetCPUUtilizationPercentage }}
+  minReplicas: {{ .Values.ui.replicaCount }}
+  maxReplicas: {{ .Values.ui.maxReplicaCount }}
+  targetCPUUtilizationPercentage: {{ .Values.ui.targetCPUUtilizationPercentage }}
