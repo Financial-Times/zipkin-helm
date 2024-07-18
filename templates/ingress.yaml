@@ -7,9 +7,9 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-  annotations:
-      kubernetes.io/ingress.class: "{{ .Values.ingress.class }}"
 spec:
+  spec:
+    ingressClassName: "nginx"
   rules:
   - host: {{ .Values.ingress.host }}
     http:
