@@ -8,6 +8,6 @@ spec:
   ports:
    - port: {{ .Values.ui.queryPort }}
      name: "http"
-     targetPort: {{ .Values.ui.queryPort }}
+     targetPort: 80
   selector:
-    app: zipkin-ui
+    app: zipkin-okta-proxy
