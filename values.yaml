@@ -26,7 +26,6 @@ configmap:
     key: cassandra.localdc
 
 ingress:
-  class: "nginx"
   path: /
   serviceName: zipkin-ui
   servicePort: 9411
