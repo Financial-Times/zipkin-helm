@@ -8,8 +8,7 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  spec:
-    ingressClassName: "nginx"
+  ingressClassName: "nginx"
   rules:
   - host: {{ .Values.ingress.host }}
     http:
