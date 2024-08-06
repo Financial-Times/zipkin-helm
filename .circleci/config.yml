@@ -11,4 +11,4 @@ jobs:
 workflows:
   publish-chart:
     jobs:
-      - helm-pack-and-publish-to-cloudsmith
+      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
