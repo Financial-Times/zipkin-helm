@@ -3,12 +3,11 @@ orbs:
   cloudsmith-helm: helm-cloudsmith-pusher-orb@dev:alpha
 
 jobs:
-  publush-chart:
+  publish-chart:
     steps:
       - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
 
 workflows:
-  version: 2
   cloudsmith_publish:
     jobs:
       - publish-chart
