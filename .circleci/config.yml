@@ -1,0 +1,13 @@
+version: 2.1
+orbs:
+  cloudsmith-helm: helm-cloudsmith-pusher-orb@dev:alpha
+
+jobs:
+  publish-chart:
+    steps:
+      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
+
+workflows:
+  cloudsmith_publish:
+    jobs:
+      - publish-chart
