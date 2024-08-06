@@ -3,13 +3,13 @@ orbs:
   cloudsmith-helm: ft-circleci-orbs/helm-cloudsmith-pusher-orb@dev:alpha
 
 jobs:
-  publish-chart:
+  helm-pack-and-publish-to-cloudsmith:
     docker:
       - image: cimg/base:current
     steps:
       - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
 
 workflows:
-  cloudsmith_publish:
+  publish-chart:
     jobs:
-      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
+      - helm-pack-and-publish-to-cloudsmith
