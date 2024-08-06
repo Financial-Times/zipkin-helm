@@ -2,14 +2,7 @@ version: 2.1
 orbs:
   cloudsmith-helm: ft-circleci-orbs/helm-cloudsmith-pusher-orb@dev:alpha
 
-jobs:
-  helm-pack-and-publish-to-cloudsmith:
-    docker:
-      - image: cimg/base:current
-    steps:
-      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
-
 workflows:
   publish-chart:
     jobs:
-      - helm-pack-and-publish-to-cloudsmith
+      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
