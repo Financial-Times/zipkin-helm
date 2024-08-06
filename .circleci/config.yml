@@ -8,6 +8,7 @@ jobs:
       - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
 
 workflows:
+  version: 2
   cloudsmith_publish:
     jobs:
       - publish-chart
