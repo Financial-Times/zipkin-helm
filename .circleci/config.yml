@@ -2,12 +2,7 @@ version: 2.1
 orbs:
   cloudsmith-helm: ft-circleci-orbs/helm-cloudsmith-pusher-orb@dev:alpha
 
-jobs:
-  helm-pack-and-publish-to-cloudsmith:
-    executor: cimg/base:2023.09
-    steps:
-      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
 workflows:
   publish-chart:
     jobs:
-      - helm-pack-and-publish-to-cloudsmith
+      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
