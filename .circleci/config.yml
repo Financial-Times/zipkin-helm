@@ -4,11 +4,10 @@ orbs:
 
 jobs:
   helm-pack-and-publish-to-cloudsmith:
-    docker:
-      - image: cimg/base:2023.09
+    executor: cimg/base:2023.09
     steps:
       - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
 workflows:
   publish-chart:
     jobs:
-      - cloudsmith-helm/helm-pack-and-publish-to-cloudsmith
+      - helm-pack-and-publish-to-cloudsmith
